@@ -1,0 +1,38 @@
+{
+  "name": "hospital-api",
+  "version": "1.0.0",
+  "description": "hospital api where doctor register and doctor can register patient and patient admited due to covid 19 then he got the report",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayushkumar731/hospital_api.git"
+  },
+  "keywords": [
+    "hospital",
+    "api",
+    "covid19"
+  ],
+  "author": "Ayush Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ayushkumar731/hospital_api/issues"
+  },
+  "homepage": "https://github.com/ayushkumar731/hospital_api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.3",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "validator": "^13.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
