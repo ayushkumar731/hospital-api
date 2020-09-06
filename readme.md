@@ -8,12 +8,14 @@
 - [Technology Used](#Technology-Used)
 - [Folder Structure](#Folder-Structure)
 - [Quick Start](#Quick-Start)
+- [Demo](#Demo)
 
 ## Features
 
-- sign up with Username and password
+- sign up with email and password
 - register patient
 - create report
+- get report
 
 ## Technology Used
 
@@ -61,13 +63,14 @@ hospital_api
 │  └─ reports.js
 ├─ .gitignore
 ├─ app.js
+├─ config.env
 ├─ package-lock.json
 ├─ package.json
 ├─ readme.md
 └─ server.js
 ```
 
-[Back To Top](#Hospital-API)
+## [Back To Top](#Hospital-API)
 
 ## Quick Start
 
@@ -89,13 +92,13 @@ hospital_api
     npm install
 ```
 
-**Set your all id's password ,sercret key etc. in config.env file'**
+**Set your all id's password ,secret key etc. in config.env file'**
 
 ```bash
     DATABASE_URL=Your Atlas MongoDB link or you can use local database
     DATABASE_PASSWORD=If You are using Atlas then provide your database password
 
-    JWT_SECRET_KEY=Provide randm 32bit string
+    JWT_SECRET_KEY=Provide random 32bit string
     JWT_EXPIRES_IN=set the day as you want(eg. 30d)
 ```
 
@@ -105,46 +108,48 @@ hospital_api
     npm start
 ```
 
+**The Server now be running at** http://localhost:80/
+
 **To run in the Postman with the following routes :-**
 
-```bash
-    POST -> localhost/doctors/register (to register the doctor)
+- POST -> **_/doctors/register_** (to register the doctor)
 
-    POST -> localhost/doctors/login (to Authenticate)
+- POST -> **_/doctors/login_** (to Authenticate)
 
-    POST -> localhost/patients/register (to register the patient with mobile number "If patient all ready register then you get the reports of patient", 'Authentication need')
+- POST -> **_/patients/register_** (to register the patient with mobile number "If patient all ready register then you get the reports of patient", 'Authentication need')
 
-    POST -> localhost/patients/`${Patient_ID}`/create_report (to create a report with status either :'Negative','Travelled-Quarantine','Symptoms-Quarantine','Positive-Admit'. imp!-"Dr. should be authenticate" )
+- POST -> **_/patients/:id/create_report_** (to create a report with status either :'Negative','Travelled-Quarantine','Symptoms-Quarantine','Positive-Admit'. imp!-"Dr. should be authenticate" )
 
-    GET  -> localhost/patients/`${Patient_ID}`/all_reports (to check the report of pateint old to new ,'no need to Authenticate,patient can also check your status with their relative ID')
+- GET -> **_/patients/:id/all_reports_** (to check the report of pateint old to new ,'no need to Authenticate,patient can also check your status with their relative ID')
 
-    GET  -> localhost/reports/:status (To check the patient list with the status .Set status as a 'params'..'Aunthentication need')
-```
+- GET -> **_/reports/:status_** (To check the patient list with the status .Set status as a 'params'..'Aunthentication need')
 
 ## [Back To Top](#Hospital-API)
 
-**To register the Doctor**
+## Demo
+
+### To register the Doctor
 
 ![Register](./assets/img/Register.png)
 
-**To Authenticate**
+### To Authenticate
 
 ![login](./assets/img/login.png)
 
-**To Register the patient**
+### To Register the patient
 
 ![login](./assets/img/patientRegister.png)
 
-**Create Report for patient**
+### Create Report for patient
 
 ![login](./assets/img/createReport.png)
 
-**Get Reports by Patient ID**
+### Get Reports by Patient ID
 
 ![login](./assets/img/getReports.png)
 
-**Get Reports by Status**
+### Get Reports by Status
 
 ![login](./assets/img/reports.png)
 
-[Back To Top](#Hospital-API)
+## [Back To Top](#Hospital-API)
