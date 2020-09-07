@@ -37,6 +37,11 @@ exports.createReport = catchAsync(async (req, res, next) => {
   req.body.doctor = req.user._id;
   let report = await Report.create(req.body);
 
+  //popualte doctor details
+  report = await report.populate('doctor', 'name email').execPopulate();
+  //popualte patient details
+  report = await report.populate('patient', 'name phoneNumber').execPopulate();
+
   //send reponse
   res.status(201).json({
     status: 'success',
