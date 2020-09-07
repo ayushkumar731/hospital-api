@@ -8,7 +8,10 @@ exports.registerPatient = catchAsync(async (req, res, next) => {
   const { phoneNumber, name } = req.body;
 
   //if patient is found then give report
-  let patient = await Patient.findOne({ phoneNumber }).populate('report');
+  let patient = await Patient.findOne({ phoneNumber }).populate({
+    path: 'report',
+    populate: { path: 'doctor patient', select: 'name email phoneNumber' },
+  });
 
   //if patient is not found then create
   if (!patient) {
